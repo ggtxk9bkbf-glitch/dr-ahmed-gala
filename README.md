@@ -1,1 +1,0 @@
-# dr-ahmed-gala
