@@ -36,16 +36,29 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('sending')
+
+    const templateParams = {
+      name:      form.name,
+      phone:     form.phone,
+      email:     form.email,
+      treatment: form.treatment,
+      message:   form.message,
+    }
+
+    console.log('EmailJS → sending with params:', templateParams)
+
     try {
-      await emailjs.sendForm(
+      const result = await emailjs.send(
         EMAILJS_SERVICE,
         EMAILJS_TEMPLATE,
-        formRef.current,
+        templateParams,
         EMAILJS_KEY
       )
+      console.log('EmailJS SUCCESS:', result.status, result.text)
       setStatus('success')
       setForm({ name: '', phone: '', email: '', treatment: '', message: '' })
-    } catch {
+    } catch (err) {
+      console.error('EmailJS ERROR:', JSON.stringify(err), err)
       setStatus('error')
     }
   }
