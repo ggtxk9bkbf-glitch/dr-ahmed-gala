@@ -4,7 +4,7 @@ import { handleImageError } from '../utils/imageHelper'
 const BASE = import.meta.env.BASE_URL
 
 const services = [
-  { title: 'Advanced Fillers & Contouring', img: `${BASE}images/services/fillers.jpg`, emoji: '💉' },
+  { title: 'Advanced Fillers & Contouring', img: `${BASE}images/services/fillers.png`, emoji: '💉' },
   { title: 'Botox Techniques', img: `${BASE}images/services/antiaging.jpg`, emoji: '✨' },
   { title: 'Bio-stimulators', img: `${BASE}images/services/skin.jpg`, emoji: '🌱' },
   { title: 'Skin Boosters & Mesotherapy', img: `${BASE}images/services/facial.jpg`, emoji: '💧' },
