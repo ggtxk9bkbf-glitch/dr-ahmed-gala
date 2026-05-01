@@ -1,70 +1,88 @@
 import { useEffect, useRef } from 'react'
 
 const BASE = import.meta.env.BASE_URL
-const before = `${BASE}images/before-after/before1.jpg`
-const after = `${BASE}images/before-after/after1.jpg`
 
-const results = [
-  { label: 'Lip Fillers — Natural Lip Enhancement', sub: 'Hyaluronic Acid Fillers · 2 Weeks', before, after },
-  { label: 'Full Face Fillers — Facial Rejuvenation', sub: 'Multi-Area Dermal Fillers · Immediate', before, after },
-  { label: 'Lip Fillers — Subtle Volume & Definition', sub: 'Lip Augmentation · Precision Placement', before, after },
-  { label: 'Full Face Enhancement (Male)', sub: 'Natural Masculine Facial Contouring', before, after },
+const groups = [
+  {
+    title: 'Lip Fillers',
+    folder: 'lip-fillers',
+    images: ['lip_1.jpg', 'lip_2.jpg', 'lip_3.jpg'],
+  },
+  {
+    title: 'Full Face',
+    folder: 'full-face',
+    images: ['face_1.jpg', 'face_2.jpg', 'face_3.jpg'],
+  },
+  {
+    title: 'Skin Treatments',
+    folder: 'skin',
+    images: ['skin_1.jpg', 'skin_2.jpg', 'skin_3.jpg'],
+  },
+  {
+    title: 'Hair & Scalp',
+    folder: 'hair',
+    images: ['hair_1.jpg', 'hair_2.jpg', 'hair_3.jpg'],
+  },
 ]
 
-export default function BeforeAfter() {
+function TreatmentGroup({ group }) {
   const ref = useRef(null)
+
   useEffect(() => {
     const el = ref.current
     if (!el) return
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) el.classList.add('fade-in-up') },
-      { threshold: 0.1 }
+      { threshold: 0.08 }
     )
     observer.observe(el)
     return () => observer.disconnect()
   }, [])
 
   return (
+    <div ref={ref} style={{ opacity: 0 }} className="mb-14">
+      <h3 className="text-xl font-bold text-[rgb(45,52,54)] mb-5 flex items-center gap-3">
+        <span className="w-8 h-0.5 bg-[#c9a87c] inline-block"></span>
+        {group.title}
+      </h3>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {group.images.map((img) => (
+          <div
+            key={img}
+            className="overflow-hidden rounded-xl shadow-sm border border-gray-100 bg-white card-hover aspect-[4/5]"
+          >
+            <img
+              src={`${BASE}images/before-after/${group.folder}/${img}`}
+              alt={`${group.title} result`}
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+export default function BeforeAfter() {
+  return (
     <section id="results" className="bg-[#f9f7f4] py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
+        <div className="text-center mb-16">
           <p className="text-[#c9a87c] text-xs font-bold tracking-widest uppercase mb-3">
             Real Transformations
           </p>
           <h2 className="text-3xl lg:text-4xl font-bold text-[rgb(45,52,54)] mb-4">
             Before &amp; After{' '}
-            <span className="text-[#2d5a4e]">Results</span>
+            <span className="text-[#2d5a4e]">Gallery</span>
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto">
-            See the real difference our treatments make — honest results from actual patients at
-            Dr. Ahmed Gala Clinic.
+            Real results from Dr. Ahmed Galal's patients — natural enhancement, medical precision.
           </p>
         </div>
 
-        <div
-          ref={ref}
-          style={{ opacity: 0 }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {results.map((r) => (
-            <div key={r.label} className="card-hover bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100">
-              <div className="grid grid-cols-2">
-                <div className="relative">
-                  <img src={r.before} alt={`Before — ${r.label}`} className="w-full object-cover" />
-                  <span className="absolute top-2 left-2 bg-gray-700/80 text-white text-xs font-bold px-2 py-0.5 rounded">Before</span>
-                </div>
-                <div className="relative">
-                  <img src={r.after} alt={`After — ${r.label}`} className="w-full object-cover" />
-                  <span className="absolute top-2 left-2 bg-[#2d5a4e]/90 text-white text-xs font-bold px-2 py-0.5 rounded">After</span>
-                </div>
-              </div>
-              <div className="px-4 py-3">
-                <p className="font-semibold text-sm text-[rgb(45,52,54)] leading-snug">{r.label}</p>
-                <p className="text-xs text-gray-400 mt-0.5">{r.sub}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        {groups.map((group) => (
+          <TreatmentGroup key={group.folder} group={group} />
+        ))}
       </div>
     </section>
   )
