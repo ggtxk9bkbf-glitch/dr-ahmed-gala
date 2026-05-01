@@ -4,7 +4,7 @@ const testimonials = [
   {
     name: 'Sarah M.',
     role: 'Facial Aesthetics Patient',
-    text: 'Dr. Gala completely transformed my skin. The anti-aging treatment was virtually painless and the results were visible within days. Absolutely the most professional clinic I have ever visited.',
+    text: 'Dr. Galal completely transformed my skin. The anti-aging treatment was virtually painless and the results were visible within days. Absolutely the most professional clinic I have ever visited.',
     stars: 5,
     avatar: 'https://placehold.co/80x80/d4e8e0/2d5a4e?text=SM',
   },
@@ -18,14 +18,14 @@ const testimonials = [
   {
     name: 'Omar R.',
     role: 'Hair Restoration Patient',
-    text: 'The hair restoration treatment has been life-changing. After just three PRP sessions my hair is noticeably thicker and fuller. I highly recommend Dr. Gala to anyone experiencing hair loss.',
+    text: 'The hair restoration treatment has been life-changing. After just three PRP sessions my hair is noticeably thicker and fuller. I highly recommend Dr. Galal to anyone experiencing hair loss.',
     stars: 5,
     avatar: 'https://placehold.co/80x80/d4dce8/2d405a?text=OR',
   },
   {
     name: 'Nadia S.',
     role: 'Fillers & Botox Patient',
-    text: 'I was nervous about fillers but Dr. Gala put me completely at ease. The result looks incredibly natural — exactly what I wanted. I will not go anywhere else now.',
+    text: 'I was nervous about fillers but Dr. Galal put me completely at ease. The result looks incredibly natural — exactly what I wanted. I will not go anywhere else now.',
     stars: 5,
     avatar: 'https://placehold.co/80x80/e8e0d4/5a4e2d?text=NS',
   },
@@ -66,7 +66,7 @@ export default function Testimonials() {
             <span className="text-[#2d5a4e] italic">Real Patients</span>
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto">
-            Hear directly from our patients about their experience at Dr. Ahmed Gala Clinic.
+            Hear directly from our patients about their experience at Dr. Ahmed Galal Clinic.
           </p>
         </div>
 

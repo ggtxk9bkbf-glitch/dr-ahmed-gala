@@ -79,7 +79,7 @@ export default function Hero() {
               {/* Floating badge */}
               <div className="absolute bottom-6 left-6 bg-white rounded-xl px-4 py-3 shadow-lg">
                 <p className="text-xs text-gray-500 font-medium">Specialist</p>
-                <p className="text-sm font-bold text-[#2d5a4e]">Dr. Ahmed Gala, MD</p>
+                <p className="text-sm font-bold text-[#2d5a4e]">Dr. Ahmed Galal</p>
                 <p className="text-xs text-gray-400">Dermatology & Aesthetic Medicine</p>
               </div>
               {/* Floating rating */}
