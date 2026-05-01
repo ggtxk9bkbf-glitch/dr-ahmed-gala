@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import emailjs from '@emailjs/browser'
 
 const EMAILJS_SERVICE  = 'ahmedbooks'
-const EMAILJS_TEMPLATE = 'template_zcpczv8'
+const EMAILJS_TEMPLATE = 'template_u81hvqb'
 const EMAILJS_KEY      = 'ju5jjkSKHDueNCnrd'
 
 const treatments = [
