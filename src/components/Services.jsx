@@ -71,7 +71,7 @@ const services = [
   },
   {
     title: 'Hair & Scalp Treatments',
-    img: `${BASE}images/services/hair.jpg`,
+    img: `${BASE}images/services/hair.png`,
     emoji: '💆',
     desc: 'Advanced solutions for hair thinning and loss, combining PRP therapy, mesotherapy, and medical protocols for visible regrowth.',
     details: [
