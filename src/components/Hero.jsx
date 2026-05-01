@@ -25,13 +25,11 @@ export default function Hero() {
             <p className="text-[#c9a87c] text-sm font-semibold tracking-widest uppercase mb-4">
               Advanced Aesthetic Care
             </p>
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-[rgb(45,52,54)] mb-6">
-              Facial Aesthetics,{' '}
-              <span className="italic font-light">Skin Rejuvenation</span>{' '}
-              <br />
-              &amp; Hair Restoration
-              <br />
-              <span className="text-[#2d5a4e] italic">in Cairo</span>
+            <h1 className="text-4xl lg:text-5xl xl:text-6xl leading-tight mb-6">
+              <span className="block font-bold text-[rgb(45,52,54)]">Facial Aesthetics,</span>
+              <span className="block font-light italic text-[rgb(45,52,54)]">Skin Rejuvenation</span>
+              <span className="block font-bold text-[rgb(45,52,54)]">&amp; Hair Restoration</span>
+              <span className="block font-bold italic text-[#2d5a4e]">in Cairo</span>
             </h1>
             <p className="text-[rgb(100,115,120)] text-lg leading-relaxed mb-8 max-w-xl">
               Empowering you to look and feel your absolute best with expert treatments backed by
