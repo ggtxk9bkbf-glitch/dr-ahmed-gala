@@ -1,4 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
+import emailjs from '@emailjs/browser'
+
+const EMAILJS_SERVICE  = 'ahmedbooks'
+const EMAILJS_TEMPLATE = 'ahmedbooks'
+const EMAILJS_KEY      = 'ju5jjkSKHDueNCnrd'
 
 const treatments = [
   'Advanced Fillers & Contouring',
@@ -10,12 +15,13 @@ const treatments = [
 ]
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', phone: '', email: '', treatment: '', message: '' })
-  const [submitted, setSubmitted] = useState(false)
-  const ref = useRef(null)
+  const [form, setForm]           = useState({ name: '', phone: '', email: '', treatment: '', message: '' })
+  const [status, setStatus]       = useState('idle') // idle | sending | success | error
+  const formRef = useRef(null)
+  const sectionRef = useRef(null)
 
   useEffect(() => {
-    const el = ref.current
+    const el = sectionRef.current
     if (!el) return
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) el.classList.add('fade-in-up') },
@@ -27,9 +33,21 @@ export default function Contact() {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setStatus('sending')
+    try {
+      await emailjs.sendForm(
+        EMAILJS_SERVICE,
+        EMAILJS_TEMPLATE,
+        formRef.current,
+        { publicKey: EMAILJS_KEY }
+      )
+      setStatus('success')
+      setForm({ name: '', phone: '', email: '', treatment: '', message: '' })
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -49,26 +67,25 @@ export default function Contact() {
           </p>
         </div>
 
-        <div ref={ref} style={{ opacity: 0 }} className="grid lg:grid-cols-2 gap-12">
+        <div ref={sectionRef} style={{ opacity: 0 }} className="grid lg:grid-cols-2 gap-12">
           {/* Form */}
           <div className="bg-[#f9f7f4] rounded-2xl p-8 border border-gray-100">
-            {submitted ? (
+            {status === 'success' ? (
               <div className="text-center py-12">
                 <div className="text-5xl mb-4">✅</div>
-                <h3 className="text-xl font-bold text-[#2d5a4e] mb-2">Request Received!</h3>
+                <h3 className="text-xl font-bold text-[#2d5a4e] mb-2">Message Sent!</h3>
                 <p className="text-gray-500">
-                  Thank you for reaching out. Dr. Galal's team will contact you within 24 hours to
-                  confirm your appointment.
+                  Thank you! We'll contact you shortly.
                 </p>
                 <button
-                  onClick={() => setSubmitted(false)}
+                  onClick={() => setStatus('idle')}
                   className="mt-6 text-sm text-[#2d5a4e] underline"
                 >
-                  Submit another request
+                  Send another request
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-semibold text-gray-600 mb-1.5">Full Name *</label>
@@ -131,12 +148,20 @@ export default function Contact() {
                     className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#2d5a4e]/30 focus:border-[#2d5a4e] transition-all resize-none"
                   />
                 </div>
+
+                {status === 'error' && (
+                  <p className="text-red-500 text-sm text-center">
+                    Something went wrong. Please call us directly at +20 111 333 7472.
+                  </p>
+                )}
+
                 <div className="flex items-center gap-4 pt-2">
                   <button
                     type="submit"
-                    className="flex-1 bg-[#2d5a4e] text-white font-semibold py-3.5 rounded-xl hover:bg-[#234840] transition-colors duration-200"
+                    disabled={status === 'sending'}
+                    className="flex-1 bg-[#2d5a4e] text-white font-semibold py-3.5 rounded-xl hover:bg-[#234840] transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Book Consultation
+                    {status === 'sending' ? 'Sending…' : 'Book Consultation'}
                   </button>
                   <a
                     href="tel:+20111333472"
