@@ -22,7 +22,7 @@ export default function About() {
           <div className="relative">
             <div className="absolute -bottom-4 -left-4 w-full h-full bg-[#2d5a4e]/8 rounded-2xl"></div>
             <img
-              src={`${import.meta.env.BASE_URL}images/team/doctor.jpg`}
+              src={`${import.meta.env.BASE_URL}images/team/doctor.jpeg`}
               alt="Dr. Ahmed Gala, MD — Dermatology & Aesthetic Medicine Specialist"
               className="relative rounded-2xl shadow-xl w-full object-cover"
             />
