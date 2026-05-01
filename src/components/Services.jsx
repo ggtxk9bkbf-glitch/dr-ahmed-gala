@@ -19,7 +19,7 @@ const services = [
   },
   {
     title: 'Botox Techniques',
-    img: `${BASE}images/services/antiaging.jpg`,
+    img: `${BASE}images/services/antiaging.png`,
     emoji: '✨',
     desc: 'Expert neurotoxin application for natural, non-frozen results. Targeting dynamic wrinkles while preserving full facial expression.',
     details: [
