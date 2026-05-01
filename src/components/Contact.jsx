@@ -1,14 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
 
 const treatments = [
-  'Facial Aesthetic Treatments',
-  'Skin Rejuvenation',
-  'Hair Restoration',
-  'Anti-Aging Treatments',
-  'Acne & Scar Treatment',
-  'Fillers & Botox',
-  'Laser & Light Therapy',
-  'Body Contouring',
+  'Advanced Fillers & Contouring',
+  'Botox Techniques',
+  'Bio-stimulators',
+  'Skin Boosters & Mesotherapy',
+  'Comprehensive Skin Treatments',
+  'Hair & Scalp Treatments',
 ]
 
 export default function Contact() {
@@ -42,11 +40,12 @@ export default function Contact() {
             Get in Touch
           </p>
           <h2 className="text-3xl lg:text-4xl font-bold text-[rgb(45,52,54)] mb-4">
-            Let's Start Your{' '}
-            <span className="text-[#2d5a4e] italic">Transformation</span>
+            Book Your{' '}
+            <span className="text-[#2d5a4e] italic">Consultation</span>
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto">
-            Book a consultation or reach out directly — our team will get back to you promptly.
+            Reach out directly or fill the form below — Dr. Galal's team will confirm your
+            appointment promptly.
           </p>
         </div>
 
@@ -58,7 +57,8 @@ export default function Contact() {
                 <div className="text-5xl mb-4">✅</div>
                 <h3 className="text-xl font-bold text-[#2d5a4e] mb-2">Request Received!</h3>
                 <p className="text-gray-500">
-                  Thank you for reaching out. Our team will contact you within 24 hours to confirm your appointment.
+                  Thank you for reaching out. Dr. Galal's team will contact you within 24 hours to
+                  confirm your appointment.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -90,7 +90,7 @@ export default function Contact() {
                       required
                       value={form.phone}
                       onChange={handleChange}
-                      placeholder="+20 XXX XXX XXXX"
+                      placeholder="+20 111 333 7472"
                       className="w-full px-4 py-3 bg-white border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#2d5a4e]/30 focus:border-[#2d5a4e] transition-all"
                     />
                   </div>
@@ -139,7 +139,7 @@ export default function Contact() {
                     Book Consultation
                   </button>
                   <a
-                    href="tel:+20XXXXXXXXXX"
+                    href="tel:+20111333472"
                     className="flex-1 border border-[#2d5a4e] text-[#2d5a4e] font-semibold py-3.5 rounded-xl text-center hover:bg-[#f0f7f4] transition-colors duration-200 text-sm"
                   >
                     📞 Call Now
@@ -152,33 +152,33 @@ export default function Contact() {
           {/* Contact info */}
           <div className="flex flex-col gap-6">
             <div>
-              <h3 className="font-bold text-xl text-[rgb(45,52,54)] mb-2">Get in Touch</h3>
+              <h3 className="font-bold text-xl text-[rgb(45,52,54)] mb-2">Contact Dr. Galal's Clinic</h3>
               <p className="text-gray-500 text-sm">
-                We'd love to hear from you. Our friendly team is available during clinic hours to answer
-                all your questions.
+                Two clinic locations in Cairo. Call or message directly — or fill the form and we'll
+                reach you within 24 hours.
               </p>
             </div>
 
             {[
               {
                 icon: '📍',
-                title: 'Clinic Address',
-                lines: ['Dr. Ahmed Gala Clinic', '15 Tahrir Square, Dokki', 'Cairo, Egypt'],
+                title: 'Sheikh Zayed Clinic',
+                lines: ['Izar Plaza Mall', 'Palm Hills, Sheikh Zayed, Cairo', '📅 Wed: 3 PM – 8 PM'],
+              },
+              {
+                icon: '📍',
+                title: 'New Cairo Clinic',
+                lines: ['Concord Plaza Mall', '90th Street, New Cairo, Cairo', '📅 Mon: 5–9 PM · Tue: 1–8 PM'],
               },
               {
                 icon: '📞',
-                title: 'Phone',
-                lines: ['+20 10 XXXX XXXX', '+20 2 XXXX XXXX'],
+                title: 'Phone / WhatsApp',
+                lines: ['+20 111 333 7472'],
               },
               {
                 icon: '✉️',
                 title: 'Email',
-                lines: ['info@drahemedgala.com', 'appointments@drahemedgala.com'],
-              },
-              {
-                icon: '🕐',
-                title: 'Opening Hours',
-                lines: ['Saturday – Thursday: 10:00am – 8:00pm', 'Friday: Closed'],
+                lines: ['galal.ahmedamer@gmail.com'],
               },
             ].map((item) => (
               <div key={item.title} className="flex items-start gap-4 p-5 bg-[#f9f7f4] rounded-xl border border-gray-100">
@@ -196,16 +196,23 @@ export default function Contact() {
 
             {/* Social */}
             <div className="flex items-center gap-3 mt-2">
-              <p className="text-sm font-semibold text-gray-600">Follow Us:</p>
-              {['📘 Facebook', '📸 Instagram', '🐦 Twitter'].map((s) => (
-                <a
-                  key={s}
-                  href="#"
-                  className="text-xs font-medium text-[#2d5a4e] bg-[#f0f7f4] px-3 py-1.5 rounded-lg hover:bg-[#d4e8e0] transition-colors"
-                >
-                  {s}
-                </a>
-              ))}
+              <p className="text-sm font-semibold text-gray-600">Follow:</p>
+              <a
+                href="https://instagram.com/drahmedgalal.g"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-medium text-[#2d5a4e] bg-[#f0f7f4] px-3 py-1.5 rounded-lg hover:bg-[#d4e8e0] transition-colors"
+              >
+                📸 @drahmedgalal.g
+              </a>
+              <a
+                href="https://tiktok.com/@drahmedgalal_g"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-medium text-[#2d5a4e] bg-[#f0f7f4] px-3 py-1.5 rounded-lg hover:bg-[#d4e8e0] transition-colors"
+              >
+                🎵 @drahmedgalal_g
+              </a>
             </div>
           </div>
         </div>

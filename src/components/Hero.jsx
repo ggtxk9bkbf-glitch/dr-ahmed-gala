@@ -23,17 +23,16 @@ export default function Hero() {
           {/* Left content */}
           <div ref={ref} style={{ opacity: 0 }}>
             <p className="text-[#c9a87c] text-sm font-semibold tracking-widest uppercase mb-4">
-              Advanced Aesthetic Care
+              Aesthetic Dermatologist &amp; Expert Injector
             </p>
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl leading-tight mb-6">
-              <span className="block font-bold text-[rgb(45,52,54)]">Facial Aesthetics,</span>
-              <span className="block font-light italic text-[rgb(45,52,54)]">Skin Rejuvenation</span>
-              <span className="block font-bold text-[rgb(45,52,54)]">&amp; Hair Restoration</span>
-              <span className="block font-bold italic text-[#2d5a4e]">in Cairo</span>
+            <h1 className="text-4xl lg:text-5xl xl:text-6xl leading-tight mb-4">
+              <span className="block font-bold text-[rgb(45,52,54)]">Medical Aesthetics,</span>
+              <span className="block font-light italic text-[rgb(45,52,54)]">Precision.</span>
+              <span className="block font-bold text-[rgb(45,52,54)]">Natural Results.</span>
             </h1>
             <p className="text-[rgb(100,115,120)] text-lg leading-relaxed mb-8 max-w-xl">
-              Empowering you to look and feel your absolute best with expert treatments backed by
-              advanced medical technology. Over 15 years of aesthetic excellence.
+              Aesthetic Dermatology &amp; Advanced Injectables by Dr Ahmed Galal — combining medical
+              expertise with artistic vision to enhance natural beauty while maintaining facial harmony.
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -53,9 +52,9 @@ export default function Hero() {
             {/* Stats row */}
             <div className="flex gap-10 mt-12 pt-8 border-t border-gray-200">
               {[
-                { num: '15+', label: 'Years Experience' },
-                { num: '5k+', label: 'Happy Patients' },
-                { num: '20+', label: 'Treatments' },
+                { num: '5+', label: 'Years Experience' },
+                { num: '5,000+', label: 'Patients Treated' },
+                { num: '98%', label: 'Satisfaction Rate' },
               ].map((s) => (
                 <div key={s.label}>
                   <p className="text-2xl font-bold text-[#2d5a4e]">{s.num}</p>

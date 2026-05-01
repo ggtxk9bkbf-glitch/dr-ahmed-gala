@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 
 const navLinks = [
-  { label: 'About Us', href: '#about' },
+  { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
-  { label: 'Gallery', href: '#results' },
-  { label: 'Contact Us', href: '#contact' },
+  { label: 'Philosophy', href: '#philosophy' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 export default function Header() {
@@ -38,7 +38,7 @@ export default function Header() {
           <div className="w-8 h-8 rounded-full bg-[#2d5a4e] flex items-center justify-center">
             <span className="text-white font-bold text-sm">AG</span>
           </div>
-          <span className="font-bold text-[#2d5a4e] text-lg tracking-tight">Dr. Ahmed Gala</span>
+          <span className="font-bold text-[#2d5a4e] text-lg tracking-tight">Dr. Ahmed Galal</span>
         </a>
 
         {/* Desktop Nav */}
@@ -56,6 +56,12 @@ export default function Header() {
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-3">
+          <a
+            href="tel:+20111333472"
+            className="text-sm font-medium text-[#2d5a4e] hover:underline hidden lg:block"
+          >
+            +20 111 333 7472
+          </a>
           <a
             href="#contact"
             className="bg-[#2d5a4e] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#234840] transition-colors duration-200"

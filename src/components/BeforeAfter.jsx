@@ -5,10 +5,10 @@ const before = `${BASE}images/before-after/before1.jpg`
 const after = `${BASE}images/before-after/after1.jpg`
 
 const results = [
-  { label: 'Anti-Aging Treatment', before, after },
-  { label: 'Skin Rejuvenation', before, after },
-  { label: 'Acne Scar Treatment', before, after },
-  { label: 'Pigmentation Correction', before, after },
+  { label: 'Lip Fillers — Natural Lip Enhancement', sub: 'Hyaluronic Acid Fillers · 2 Weeks', before, after },
+  { label: 'Full Face Fillers — Facial Rejuvenation', sub: 'Multi-Area Dermal Fillers · Immediate', before, after },
+  { label: 'Lip Fillers — Subtle Volume & Definition', sub: 'Lip Augmentation · Precision Placement', before, after },
+  { label: 'Full Face Enhancement (Male)', sub: 'Natural Masculine Facial Contouring', before, after },
 ]
 
 export default function BeforeAfter() {
@@ -59,7 +59,8 @@ export default function BeforeAfter() {
                 </div>
               </div>
               <div className="px-4 py-3">
-                <p className="font-semibold text-sm text-[rgb(45,52,54)]">{r.label}</p>
+                <p className="font-semibold text-sm text-[rgb(45,52,54)] leading-snug">{r.label}</p>
+                <p className="text-xs text-gray-400 mt-0.5">{r.sub}</p>
               </div>
             </div>
           ))}

@@ -2,101 +2,71 @@ import { useState, useEffect, useRef } from 'react'
 
 const tabs = [
   {
-    label: 'Aesthetic Treatments',
+    label: 'Injectables',
     cards: [
       {
-        icon: '✨',
-        title: 'Anti-Aging Treatments',
-        desc: 'Reduce wrinkles and fine lines with advanced botulinum toxin and collagen stimulators.',
-        price: 'From 800 EGP',
+        icon: '💉',
+        title: 'Advanced Fillers & Contouring',
+        desc: 'Precision facial sculpting and volume restoration using hyaluronic acid and collagen stimulators.',
         tag: 'Popular',
       },
       {
-        icon: '🎨',
-        title: 'Pigmentation & Tone Correction',
-        desc: 'Even skin tone and correct dark spots using laser and chemical peel protocols.',
-        price: 'From 600 EGP',
-        tag: 'Recommended',
-      },
-      {
-        icon: '💫',
-        title: 'Face Rejuvenation',
-        desc: 'Restore youthful glow through PRP, micro-needling, and bio-revitalisation.',
-        price: 'From 1,200 EGP',
-        tag: '',
-      },
-      {
-        icon: '💉',
-        title: 'Facial Contouring & Non-Surgical Enhancements',
-        desc: 'Sculpt and define facial features with precision dermal filler placement.',
-        price: 'From 1,500 EGP',
-        tag: '',
-      },
-      {
-        icon: '💋',
-        title: 'Lip Enhancement',
-        desc: 'Achieve natural-looking volume and definition with hyaluronic acid lip fillers.',
-        price: 'From 900 EGP',
-        tag: 'New',
-      },
-      {
-        icon: '🌿',
-        title: 'Acne Scar Treatment',
-        desc: 'Laser resurfacing and micro-needling to significantly reduce acne scarring.',
-        price: 'From 1,000 EGP',
-        tag: '',
-      },
-    ],
-  },
-  {
-    label: 'Hair Restoration',
-    cards: [
-      {
-        icon: '💆',
-        title: 'Hair Restoration — PRP',
-        desc: 'Platelet-Rich Plasma therapy to stimulate natural hair regrowth and thickness.',
-        price: 'From 1,800 EGP',
+        icon: '✨',
+        title: 'Botox Techniques',
+        desc: 'Expert neurotoxin application for natural, non-frozen results. Forehead, brow lift, masseter, and more.',
         tag: 'Popular',
       },
       {
         icon: '🌱',
-        title: 'Scalp Treatment',
-        desc: 'Deep nourishment and medical-grade scalp therapy for healthier hair follicles.',
-        price: 'From 700 EGP',
+        title: 'Bio-stimulators',
+        desc: 'Collagen regeneration treatments (Sculptra, Radiesse) for long-term skin quality improvement.',
         tag: '',
       },
       {
-        icon: '💊',
-        title: 'Hair Loss Consultation',
-        desc: 'Comprehensive diagnosis and personalised treatment plan for hair loss conditions.',
-        price: 'From 400 EGP',
+        icon: '💧',
+        title: 'Skin Boosters & Mesotherapy',
+        desc: 'Deep hydration and skin quality enhancement through micro-injection of vitamins and hyaluronic acid.',
         tag: 'Recommended',
       },
     ],
   },
   {
-    label: 'Skin Care',
+    label: 'Skin Treatments',
     cards: [
       {
         icon: '🔬',
-        title: 'Laser & Light Therapy',
-        desc: 'Advanced laser treatments targeting pigmentation, vascular lesions, and texture.',
-        price: 'From 1,100 EGP',
+        title: 'Comprehensive Skin Treatments',
+        desc: 'Medical-grade skincare and rejuvenation protocols including chemical peels, laser, and microneedling.',
         tag: 'Popular',
       },
       {
-        icon: '🩹',
-        title: 'Acne Management',
-        desc: 'Medical-grade acne treatment combining chemical peels and topical protocols.',
-        price: 'From 500 EGP',
+        icon: '🌟',
+        title: 'Pigmentation Correction',
+        desc: 'Targeted laser and peel treatments to even skin tone, reduce dark spots and post-inflammatory marks.',
         tag: '',
       },
       {
-        icon: '🌟',
-        title: 'HydraFacial & Deep Cleansing',
-        desc: 'Deeply cleanse, exfoliate, and hydrate your skin in a single relaxing session.',
-        price: 'From 800 EGP',
-        tag: 'New',
+        icon: '🩹',
+        title: 'Acne Scar Revision',
+        desc: 'Combination laser resurfacing and microneedling protocols for significant scar improvement.',
+        tag: 'Recommended',
+      },
+    ],
+  },
+  {
+    label: 'Hair & Scalp',
+    cards: [
+      {
+        icon: '💆',
+        title: 'Hair & Scalp Treatments',
+        desc: 'Advanced solutions for hair health including PRP therapy, mesotherapy, and medical-grade scalp protocols.',
+        tag: 'Popular',
+      },
+      {
+        icon: '💊',
+        title: 'Hair Loss Consultation',
+        desc: 'Comprehensive diagnosis and fully personalised treatment plan for all types of hair loss conditions.',
+        tag: 'Recommended',
       },
     ],
   },
@@ -105,7 +75,6 @@ const tabs = [
 const tagColors = {
   Popular: 'bg-[#2d5a4e] text-white',
   Recommended: 'bg-[#c9a87c] text-white',
-  New: 'bg-blue-500 text-white',
 }
 
 function ServiceCard({ card }) {
@@ -139,11 +108,10 @@ function ServiceCard({ card }) {
         )}
       </div>
       <p className="text-gray-500 text-xs leading-relaxed flex-1">{card.desc}</p>
-      <div className="flex items-center justify-between pt-2 border-t border-gray-100">
-        <span className="text-xs font-semibold text-[#2d5a4e]">{card.price}</span>
-        <button className="text-xs font-semibold text-[#2d5a4e] border border-[#2d5a4e] px-3 py-1.5 rounded-lg hover:bg-[#2d5a4e] hover:text-white transition-colors duration-200">
-          Learn More
-        </button>
+      <div className="pt-2 border-t border-gray-100">
+        <a href="#contact" className="text-xs font-semibold text-[#2d5a4e] border border-[#2d5a4e] px-3 py-1.5 rounded-lg hover:bg-[#2d5a4e] hover:text-white transition-colors duration-200">
+          Book Now
+        </a>
       </div>
     </div>
   )
@@ -157,13 +125,15 @@ export default function WhyChoose() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-[#c9a87c] text-xs font-bold tracking-widest uppercase mb-3">
-            Our Treatments
+            Areas of Expertise
           </p>
           <h2 className="text-3xl lg:text-4xl font-bold text-[rgb(45,52,54)] mb-4">
-            Why Choose <span className="text-[#2d5a4e] italic">Dr. Ahmed Gala</span>
+            Treatments by{' '}
+            <span className="text-[#2d5a4e] italic">Dr. Ahmed Galal</span>
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto">
-            Every treatment is crafted around your goals — from the first consultation to your final result.
+            Every treatment is crafted with precision and designed around your goals — from first
+            consultation to final result.
           </p>
         </div>
 
@@ -185,10 +155,7 @@ export default function WhyChoose() {
         </div>
 
         {/* Cards grid */}
-        <div
-          key={activeTab}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
-        >
+        <div key={activeTab} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {tabs[activeTab].cards.map((card) => (
             <ServiceCard key={card.title} card={card} />
           ))}

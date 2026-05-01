@@ -3,14 +3,12 @@ import { useEffect, useRef } from 'react'
 const BASE = import.meta.env.BASE_URL
 
 const services = [
-  { title: 'Facial Aesthetic Treatments', img: `${BASE}images/services/facial.jpg`, emoji: '✨' },
-  { title: 'Skin Rejuvenation', img: `${BASE}images/services/skin.jpg`, emoji: '🌟' },
-  { title: 'Hair Restoration', img: `${BASE}images/services/hair.jpg`, emoji: '💆' },
-  { title: 'Anti-Aging Treatments', img: `${BASE}images/services/antiaging.jpg`, emoji: '⏳' },
-  { title: 'Acne & Scar Treatment', img: `${BASE}images/services/acne.jpg`, emoji: '🩹' },
-  { title: 'Fillers & Botox', img: `${BASE}images/services/fillers.jpg`, emoji: '💉' },
-  { title: 'Laser & Light Therapy', img: `${BASE}images/services/laser.jpg`, emoji: '💡' },
-  { title: 'Body Contouring', img: `${BASE}images/services/body.jpg`, emoji: '🏃' },
+  { title: 'Advanced Fillers & Contouring', img: `${BASE}images/services/fillers.jpg`, emoji: '💉' },
+  { title: 'Botox Techniques', img: `${BASE}images/services/antiaging.jpg`, emoji: '✨' },
+  { title: 'Bio-stimulators', img: `${BASE}images/services/skin.jpg`, emoji: '🌱' },
+  { title: 'Skin Boosters & Mesotherapy', img: `${BASE}images/services/facial.jpg`, emoji: '💧' },
+  { title: 'Comprehensive Skin Treatments', img: `${BASE}images/services/laser.jpg`, emoji: '🔬' },
+  { title: 'Hair & Scalp Treatments', img: `${BASE}images/services/hair.jpg`, emoji: '💆' },
 ]
 
 function ServiceCard({ service }) {
