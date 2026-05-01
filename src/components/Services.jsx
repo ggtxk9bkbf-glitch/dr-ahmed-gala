@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { handleImageError } from '../utils/imageHelper'
 
 const BASE = import.meta.env.BASE_URL
 
@@ -34,6 +35,7 @@ function ServiceCard({ service }) {
         <img
           src={service.img}
           alt={service.title}
+          onError={(e) => handleImageError(e, service.title)}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>

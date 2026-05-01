@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { handleImageError } from '../utils/imageHelper'
 
 export default function About() {
   const ref = useRef(null)
@@ -24,6 +25,7 @@ export default function About() {
             <img
               src={`${import.meta.env.BASE_URL}images/team/doctor2.jpg`}
               alt="Dr. Ahmed Galal — Aesthetic Dermatologist & Expert Injector"
+              onError={(e) => handleImageError(e, 'Dr. Ahmed Galal')}
               className="relative rounded-2xl shadow-xl w-full object-cover"
             />
             {/* Experience badge */}

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { handleImageError } from '../utils/imageHelper'
 
 const BASE = import.meta.env.BASE_URL
 
@@ -54,6 +55,7 @@ function TreatmentGroup({ group }) {
             <img
               src={`${BASE}images/before-after/${group.folder}/${img}`}
               alt={`${group.title} result`}
+              onError={(e) => handleImageError(e, group.title)}
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
           </div>

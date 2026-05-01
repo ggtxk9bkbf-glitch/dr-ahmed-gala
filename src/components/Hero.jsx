@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { handleImageError } from '../utils/imageHelper'
 
 export default function Hero() {
   const ref = useRef(null)
@@ -71,7 +72,8 @@ export default function Hero() {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src={`${import.meta.env.BASE_URL}images/team/doctor.jpg`}
-                alt="Dr. Ahmed Gala — Dermatology & Aesthetic Medicine Specialist"
+                alt="Dr. Ahmed Galal — Aesthetic Dermatologist & Expert Injector"
+                onError={(e) => handleImageError(e, 'Dr. Ahmed Galal')}
                 className="w-full h-full object-cover"
               />
               {/* Floating badge */}
