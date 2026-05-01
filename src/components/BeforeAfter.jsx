@@ -7,7 +7,7 @@ const groups = [
   {
     title: 'Lip Fillers',
     folder: 'lip-fillers',
-    images: ['lip_1.jpg', 'lip_2.jpg', 'lip_3.jpg'],
+    images: ['lip_1.jpeg', 'lip_2.jpeg', 'lip_3.jpeg'],
   },
   {
     title: 'Full Face',

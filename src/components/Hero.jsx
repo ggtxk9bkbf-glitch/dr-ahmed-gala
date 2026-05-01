@@ -71,7 +71,7 @@ export default function Hero() {
             <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-[#c9a87c]/20 rounded-full blur-2xl"></div>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src={`${import.meta.env.BASE_URL}images/team/doctor.jpg`}
+                src={`${import.meta.env.BASE_URL}images/team/doctor.jpeg`}
                 alt="Dr. Ahmed Galal — Aesthetic Dermatologist & Expert Injector"
                 onError={(e) => handleImageError(e, 'Dr. Ahmed Galal')}
                 className="w-full h-full object-cover"
