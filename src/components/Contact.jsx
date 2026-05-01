@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import emailjs from '@emailjs/browser'
 
 const EMAILJS_SERVICE  = 'ahmedbooks'
-const EMAILJS_TEMPLATE = 'ahmedbooks'
+const EMAILJS_TEMPLATE = 'template_zcpczv8'
 const EMAILJS_KEY      = 'ju5jjkSKHDueNCnrd'
 
 const treatments = [
@@ -41,7 +41,7 @@ export default function Contact() {
         EMAILJS_SERVICE,
         EMAILJS_TEMPLATE,
         formRef.current,
-        { publicKey: EMAILJS_KEY }
+        EMAILJS_KEY
       )
       setStatus('success')
       setForm({ name: '', phone: '', email: '', treatment: '', message: '' })
