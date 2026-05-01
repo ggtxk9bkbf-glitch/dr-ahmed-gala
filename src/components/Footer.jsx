@@ -29,7 +29,7 @@ function TikTokIcon() {
   )
 }
 
-
+const footerLinks = {
   Treatments: [
     'Advanced Fillers & Contouring',
     'Botox Techniques',
