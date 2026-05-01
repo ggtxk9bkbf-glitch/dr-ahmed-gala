@@ -58,7 +58,7 @@ const services = [
   },
   {
     title: 'Comprehensive Skin Treatments',
-    img: `${BASE}images/services/facial.jpg`,
+    img: `${BASE}images/services/skin2.jpg`,
     emoji: '🔬',
     desc: 'Medical-grade skincare and rejuvenation protocols combining laser, chemical peels, and microneedling for transformative skin results.',
     details: [
