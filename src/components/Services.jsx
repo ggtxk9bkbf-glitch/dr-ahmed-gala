@@ -1,14 +1,16 @@
 import { useEffect, useRef } from 'react'
 
+const BASE = import.meta.env.BASE_URL
+
 const services = [
-  { title: 'Facial Aesthetic Treatments', img: 'https://placehold.co/400x300/d4e8e0/2d5a4e?text=Facial+Aesthetics', emoji: '✨' },
-  { title: 'Skin Rejuvenation', img: 'https://placehold.co/400x300/e0d4e8/5a2d5a?text=Skin+Rejuvenation', emoji: '🌟' },
-  { title: 'Hair Restoration', img: 'https://placehold.co/400x300/d4dce8/2d405a?text=Hair+Restoration', emoji: '💆' },
-  { title: 'Anti-Aging Treatments', img: 'https://placehold.co/400x300/e8e0d4/5a4e2d?text=Anti-Aging', emoji: '⏳' },
-  { title: 'Acne & Scar Treatment', img: 'https://placehold.co/400x300/e8d4d4/5a2d2d?text=Acne+%26+Scar', emoji: '🩹' },
-  { title: 'Fillers & Botox', img: 'https://placehold.co/400x300/d4e8e8/2d5a5a?text=Fillers+%26+Botox', emoji: '💉' },
-  { title: 'Laser & Light Therapy', img: 'https://placehold.co/400x300/e8e8d4/5a5a2d?text=Laser+Therapy', emoji: '💡' },
-  { title: 'Body Contouring', img: 'https://placehold.co/400x300/e4d4e8/4e2d5a?text=Body+Contouring', emoji: '🏃' },
+  { title: 'Facial Aesthetic Treatments', img: `${BASE}images/services/facial.jpg`, emoji: '✨' },
+  { title: 'Skin Rejuvenation', img: `${BASE}images/services/skin.jpg`, emoji: '🌟' },
+  { title: 'Hair Restoration', img: `${BASE}images/services/hair.jpg`, emoji: '💆' },
+  { title: 'Anti-Aging Treatments', img: `${BASE}images/services/antiaging.jpg`, emoji: '⏳' },
+  { title: 'Acne & Scar Treatment', img: `${BASE}images/services/acne.jpg`, emoji: '🩹' },
+  { title: 'Fillers & Botox', img: `${BASE}images/services/fillers.jpg`, emoji: '💉' },
+  { title: 'Laser & Light Therapy', img: `${BASE}images/services/laser.jpg`, emoji: '💡' },
+  { title: 'Body Contouring', img: `${BASE}images/services/body.jpg`, emoji: '🏃' },
 ]
 
 function ServiceCard({ service }) {

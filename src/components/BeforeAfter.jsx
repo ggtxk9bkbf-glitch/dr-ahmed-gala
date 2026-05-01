@@ -1,10 +1,14 @@
 import { useEffect, useRef } from 'react'
 
+const BASE = import.meta.env.BASE_URL
+const before = `${BASE}images/before-after/before1.jpg`
+const after = `${BASE}images/before-after/after1.jpg`
+
 const results = [
-  { label: 'Anti-Aging Treatment', before: 'https://placehold.co/280x200/e0d0c0/6b5040?text=Before', after: 'https://placehold.co/280x200/d4e8e0/2d5a4e?text=After' },
-  { label: 'Skin Rejuvenation', before: 'https://placehold.co/280x200/e0d0c0/6b5040?text=Before', after: 'https://placehold.co/280x200/d4e8e0/2d5a4e?text=After' },
-  { label: 'Acne Scar Treatment', before: 'https://placehold.co/280x200/e0d0c0/6b5040?text=Before', after: 'https://placehold.co/280x200/d4e8e0/2d5a4e?text=After' },
-  { label: 'Pigmentation Correction', before: 'https://placehold.co/280x200/e0d0c0/6b5040?text=Before', after: 'https://placehold.co/280x200/d4e8e0/2d5a4e?text=After' },
+  { label: 'Anti-Aging Treatment', before, after },
+  { label: 'Skin Rejuvenation', before, after },
+  { label: 'Acne Scar Treatment', before, after },
+  { label: 'Pigmentation Correction', before, after },
 ]
 
 export default function BeforeAfter() {

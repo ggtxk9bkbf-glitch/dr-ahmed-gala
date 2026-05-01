@@ -73,7 +73,7 @@ export default function Hero() {
             <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-[#c9a87c]/20 rounded-full blur-2xl"></div>
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="https://placehold.co/600x700/d4e8e0/2d5a4e?text=Dr.+Ahmed+Gala"
+                src={`${import.meta.env.BASE_URL}images/team/doctor.jpg`}
                 alt="Dr. Ahmed Gala — Dermatology & Aesthetic Medicine Specialist"
                 className="w-full h-full object-cover"
               />
