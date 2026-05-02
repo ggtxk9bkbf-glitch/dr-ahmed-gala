@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { useLang } from '../context/LanguageContext'
 
 const categories = [
   {
@@ -86,6 +87,7 @@ function AccordionItem({ question, answer, isOpen, onToggle }) {
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null)
   const sectionRef = useRef(null)
+  const { t } = useLang()
 
   useEffect(() => {
     const el = sectionRef.current
@@ -115,10 +117,10 @@ export default function FAQ() {
             Knowledge Base
           </p>
           <h2 className="text-3xl lg:text-4xl font-bold text-[rgb(45,52,54)] mb-4">
-            FAQ<span className="text-[#2d5a4e] italic">'s</span>
+            {t('faq_title')}
           </h2>
           <p className="text-gray-500 max-w-md mx-auto text-sm">
-            Here are the questions my patients ask me most often.
+            {t('faq_subtitle')}
           </p>
         </div>
 
@@ -147,7 +149,7 @@ export default function FAQ() {
 
         {/* Still have questions CTA */}
         <div className="mt-12 bg-[#2d5a4e] rounded-2xl p-8 text-center text-white">
-          <h3 className="text-xl font-bold mb-2">Still Have Questions?</h3>
+          <h3 className="text-xl font-bold mb-2">{t('still_questions')}</h3>
           <p className="text-green-200 text-sm mb-6">
             Dr. Ahmed Galal is happy to answer any question before you book.
           </p>

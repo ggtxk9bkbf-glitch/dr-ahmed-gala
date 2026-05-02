@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { handleImageError } from '../utils/imageHelper'
+import { useLang } from '../context/LanguageContext'
 
 const BASE = import.meta.env.BASE_URL
 
@@ -203,6 +204,7 @@ function ServiceCard({ service, onClick }) {
 
 export default function Services() {
   const [selected, setSelected] = useState(null)
+  const { t } = useLang()
 
   return (
     <section id="services" className="bg-[#f9f7f4] py-20 lg:py-28">
@@ -212,7 +214,7 @@ export default function Services() {
             Our Expertise
           </p>
           <h2 className="text-3xl lg:text-4xl font-bold text-[rgb(45,52,54)] mb-4">
-            Popular <span className="text-[#2d5a4e]">Services</span>
+            {t('services_title')}
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto">
             Click any service to learn more. Comprehensive aesthetic treatments designed to enhance

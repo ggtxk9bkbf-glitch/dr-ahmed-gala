@@ -1,21 +1,23 @@
 import { useState, useEffect } from 'react'
-
-const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Philosophy', href: '#philosophy' },
-  { label: 'Contact', href: '#contact' },
-]
+import { useLang } from '../context/LanguageContext'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const { lang, setLang, t } = useLang()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const navLinks = [
+    { label: t('nav_about'),    href: '#about' },
+    { label: t('nav_services'), href: '#services' },
+    { label: t('nav_gallery'),  href: '#gallery' },
+    { label: t('nav_contact'),  href: '#contact' },
+  ]
 
   return (
     <header
@@ -54,8 +56,34 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* CTA */}
+        {/* Right side: language switcher + CTA */}
         <div className="hidden md:flex items-center gap-3">
+          {/* Language switcher */}
+          <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-1">
+            <button
+              onClick={() => setLang('en')}
+              aria-label="Switch to English"
+              className={`text-base px-2 py-0.5 rounded-md transition-all duration-200 ${
+                lang === 'en'
+                  ? 'bg-white shadow-sm ring-1 ring-[#2d5a4e]/30'
+                  : 'opacity-50 hover:opacity-80'
+              }`}
+            >
+              🇬🇧
+            </button>
+            <button
+              onClick={() => setLang('ar')}
+              aria-label="Switch to Arabic"
+              className={`text-base px-2 py-0.5 rounded-md transition-all duration-200 ${
+                lang === 'ar'
+                  ? 'bg-white shadow-sm ring-1 ring-[#2d5a4e]/30'
+                  : 'opacity-50 hover:opacity-80'
+              }`}
+            >
+              🇪🇬
+            </button>
+          </div>
+
           <a
             href="tel:+20111333472"
             className="text-sm font-medium text-[#2d5a4e] hover:underline hidden lg:block"
@@ -66,20 +94,42 @@ export default function Header() {
             href="#contact"
             className="bg-[#2d5a4e] text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-[#234840] transition-colors duration-200"
           >
-            Book Consultation
+            {t('nav_cta')}
           </a>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden p-2 rounded-lg hover:bg-gray-100"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <div className="w-5 h-0.5 bg-[rgb(45,52,54)] mb-1.5"></div>
-          <div className="w-5 h-0.5 bg-[rgb(45,52,54)] mb-1.5"></div>
-          <div className="w-5 h-0.5 bg-[rgb(45,52,54)]"></div>
-        </button>
+        {/* Mobile: language switcher + hamburger */}
+        <div className="md:hidden flex items-center gap-2">
+          <div className="flex items-center gap-0.5 bg-gray-100 rounded-lg p-0.5">
+            <button
+              onClick={() => setLang('en')}
+              aria-label="Switch to English"
+              className={`text-sm px-1.5 py-0.5 rounded-md transition-all duration-200 ${
+                lang === 'en' ? 'bg-white shadow-sm' : 'opacity-50'
+              }`}
+            >
+              🇬🇧
+            </button>
+            <button
+              onClick={() => setLang('ar')}
+              aria-label="Switch to Arabic"
+              className={`text-sm px-1.5 py-0.5 rounded-md transition-all duration-200 ${
+                lang === 'ar' ? 'bg-white shadow-sm' : 'opacity-50'
+              }`}
+            >
+              🇪🇬
+            </button>
+          </div>
+          <button
+            className="p-2 rounded-lg hover:bg-gray-100"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <div className="w-5 h-0.5 bg-[rgb(45,52,54)] mb-1.5"></div>
+            <div className="w-5 h-0.5 bg-[rgb(45,52,54)] mb-1.5"></div>
+            <div className="w-5 h-0.5 bg-[rgb(45,52,54)]"></div>
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -100,7 +150,7 @@ export default function Header() {
             onClick={() => setMenuOpen(false)}
             className="block mt-3 bg-[#2d5a4e] text-white text-sm font-semibold px-5 py-2.5 rounded-lg text-center"
           >
-            Book Consultation
+            {t('nav_cta')}
           </a>
         </div>
       )}

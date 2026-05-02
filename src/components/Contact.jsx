@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import emailjs from '@emailjs/browser'
+import { useLang } from '../context/LanguageContext'
 
 const EMAILJS_SERVICE  = 'ahmedbooks'
 const EMAILJS_TEMPLATE = 'template_u81hvqb'
@@ -19,6 +20,7 @@ export default function Contact() {
   const [status, setStatus]       = useState('idle') // idle | sending | success | error
   const formRef = useRef(null)
   const sectionRef = useRef(null)
+  const { t } = useLang()
 
   useEffect(() => {
     const el = sectionRef.current
@@ -71,8 +73,7 @@ export default function Contact() {
             Get in Touch
           </p>
           <h2 className="text-3xl lg:text-4xl font-bold text-[rgb(45,52,54)] mb-4">
-            Book Your{' '}
-            <span className="text-[#2d5a4e] italic">Consultation</span>
+            {t('contact_title')}
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto">
             Reach out directly or fill the form below — Dr. Galal's team will confirm your

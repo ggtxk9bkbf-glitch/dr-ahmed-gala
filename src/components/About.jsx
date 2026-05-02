@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react'
 import { handleImageError } from '../utils/imageHelper'
+import { useLang } from '../context/LanguageContext'
 
 export default function About() {
+  const { t } = useLang()
   const ref = useRef(null)
 
   useEffect(() => {
@@ -36,8 +38,8 @@ export default function About() {
             </div>
             {/* Name plate */}
             <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl px-5 py-4 shadow-lg">
-              <p className="font-bold text-[rgb(45,52,54)]">Dr. Ahmed Galal</p>
-              <p className="text-sm text-[#2d5a4e] font-medium">Aesthetic Dermatologist &amp; Expert Injector</p>
+              <p className="font-bold text-[rgb(45,52,54)]">{t('about_title')}</p>
+              <p className="text-sm text-[#2d5a4e] font-medium">{t('about_subtitle')}</p>
               <p className="text-xs text-gray-400 mt-0.5">5,000+ Patients · 98% Satisfaction Rate</p>
             </div>
           </div>
