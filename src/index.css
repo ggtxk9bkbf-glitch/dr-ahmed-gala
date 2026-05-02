@@ -27,12 +27,18 @@ body {
 #root {
   width: 100%;
   max-width: 100%;
-  text-align: left;
+  text-align: start;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: inherit;
   color: rgb(45 52 54);
+}
+
+/* RTL: floating chat stays bottom-right regardless of direction */
+[dir="rtl"] .fixed-bottom-right {
+  right: 1.5rem;
+  left: auto;
 }
 
 @keyframes fadeInUp {

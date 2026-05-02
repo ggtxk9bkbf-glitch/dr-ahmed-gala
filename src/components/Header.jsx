@@ -1,5 +1,62 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useLang } from '../context/LanguageContext'
+
+const LANGUAGES = [
+  { code: 'en', flag: '🇺🇸', label: 'English' },
+  { code: 'ar', flag: '🇪🇬', label: 'العربية' },
+]
+
+function LangDropdown({ lang, setLang }) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef(null)
+  const current = LANGUAGES.find((l) => l.code === lang)
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false)
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [])
+
+  return (
+    <div ref={ref} className="relative" dir="ltr">
+      <button
+        onClick={() => setOpen((v) => !v)}
+        aria-label="Select language"
+        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-sm font-medium text-[rgb(45,52,54)] hover:bg-gray-100 transition-colors duration-200"
+      >
+        <span className="text-base">🌐</span>
+        <span className="text-xs font-semibold text-gray-500">{current?.flag} {current?.code.toUpperCase()}</span>
+        <svg className={`w-3 h-3 text-gray-400 transition-transform duration-200 ${open ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {open && (
+        <div className="absolute top-full mt-1.5 end-0 w-40 bg-white rounded-xl shadow-lg border border-gray-100 py-1 z-50 overflow-hidden">
+          {LANGUAGES.map((l) => (
+            <button
+              key={l.code}
+              onClick={() => { setLang(l.code); setOpen(false) }}
+              className={`w-full flex items-center gap-2.5 px-3 py-2.5 text-sm transition-colors duration-150 ${
+                lang === l.code
+                  ? 'bg-[#f0f7f4] text-[#2d5a4e] font-semibold'
+                  : 'text-[rgb(45,52,54)] hover:bg-gray-50'
+              }`}
+            >
+              <span className="text-base">{l.flag}</span>
+              <span>{l.label}</span>
+              {lang === l.code && (
+                <span className="ms-auto text-[#2d5a4e] text-xs">✓</span>
+              )}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -35,8 +92,8 @@ export default function Header() {
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-2 flex-shrink-0">
+        {/* Logo — always LTR */}
+        <a href="#" className="flex items-center gap-2 flex-shrink-0" dir="ltr">
           <div className="w-8 h-8 rounded-full bg-[#2d5a4e] flex items-center justify-center">
             <span className="text-white font-bold text-sm">AG</span>
           </div>
@@ -56,34 +113,9 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Right side: language switcher + CTA */}
-        <div className="hidden md:flex items-center gap-3">
-          {/* Language switcher */}
-          <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-1">
-            <button
-              onClick={() => setLang('en')}
-              aria-label="Switch to English"
-              className={`text-base px-2 py-0.5 rounded-md transition-all duration-200 ${
-                lang === 'en'
-                  ? 'bg-white shadow-sm ring-1 ring-[#2d5a4e]/30'
-                  : 'opacity-50 hover:opacity-80'
-              }`}
-            >
-              🇬🇧
-            </button>
-            <button
-              onClick={() => setLang('ar')}
-              aria-label="Switch to Arabic"
-              className={`text-base px-2 py-0.5 rounded-md transition-all duration-200 ${
-                lang === 'ar'
-                  ? 'bg-white shadow-sm ring-1 ring-[#2d5a4e]/30'
-                  : 'opacity-50 hover:opacity-80'
-              }`}
-            >
-              🇪🇬
-            </button>
-          </div>
-
+        {/* Right side: lang dropdown + CTA */}
+        <div className="hidden md:flex items-center gap-3" dir="ltr">
+          <LangDropdown lang={lang} setLang={setLang} />
           <a
             href="tel:+20111333472"
             className="text-sm font-medium text-[#2d5a4e] hover:underline hidden lg:block"
@@ -98,28 +130,9 @@ export default function Header() {
           </a>
         </div>
 
-        {/* Mobile: language switcher + hamburger */}
-        <div className="md:hidden flex items-center gap-2">
-          <div className="flex items-center gap-0.5 bg-gray-100 rounded-lg p-0.5">
-            <button
-              onClick={() => setLang('en')}
-              aria-label="Switch to English"
-              className={`text-sm px-1.5 py-0.5 rounded-md transition-all duration-200 ${
-                lang === 'en' ? 'bg-white shadow-sm' : 'opacity-50'
-              }`}
-            >
-              🇬🇧
-            </button>
-            <button
-              onClick={() => setLang('ar')}
-              aria-label="Switch to Arabic"
-              className={`text-sm px-1.5 py-0.5 rounded-md transition-all duration-200 ${
-                lang === 'ar' ? 'bg-white shadow-sm' : 'opacity-50'
-              }`}
-            >
-              🇪🇬
-            </button>
-          </div>
+        {/* Mobile: lang dropdown + hamburger */}
+        <div className="md:hidden flex items-center gap-1" dir="ltr">
+          <LangDropdown lang={lang} setLang={setLang} />
           <button
             className="p-2 rounded-lg hover:bg-gray-100"
             onClick={() => setMenuOpen(!menuOpen)}
