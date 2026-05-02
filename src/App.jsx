@@ -7,8 +7,10 @@ import WhyChoose from './components/WhyChoose'
 import Excellence from './components/Excellence'
 import Testimonials from './components/Testimonials'
 import BeforeAfter from './components/BeforeAfter'
+import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import FloatingChat from './components/FloatingChat'
 
 export default function App() {
   return (
@@ -22,9 +24,11 @@ export default function App() {
         <Excellence />
         <Testimonials />
         <BeforeAfter />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
+      <FloatingChat />
     </div>
   )
 }
