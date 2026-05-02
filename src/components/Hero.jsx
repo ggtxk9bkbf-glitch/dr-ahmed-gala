@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react'
 import { handleImageError } from '../utils/imageHelper'
+import { useLang } from '../context/LanguageContext'
 
 export default function Hero() {
   const ref = useRef(null)
+  const { t } = useLang()
 
   useEffect(() => {
     const el = ref.current
@@ -24,29 +26,29 @@ export default function Hero() {
           {/* Left content */}
           <div ref={ref} style={{ opacity: 0 }}>
             <p className="text-[#c9a87c] text-sm font-semibold tracking-widest uppercase mb-4">
-              Aesthetic Dermatologist &amp; Expert Injector
+              {t('hero_badge')}
             </p>
             <h1 className="text-4xl lg:text-5xl xl:text-6xl leading-tight mb-4">
-              <span className="block font-bold text-[rgb(45,52,54)]">Medical Aesthetics,</span>
-              <span className="block font-light italic text-[rgb(45,52,54)]">Precision.</span>
-              <span className="block font-bold text-[rgb(45,52,54)]">Natural Results.</span>
+              <span className="block font-bold text-[rgb(45,52,54)]">{t('hero_title1')}</span>
+              <span className="block font-light italic text-[rgb(45,52,54)]">{t('hero_title2')}</span>
+              <span className="block font-bold text-[rgb(45,52,54)]">{t('hero_title3')}</span>
+              <span className="block font-bold text-[#2d5a4e]">{t('hero_title4')}</span>
             </h1>
             <p className="text-[rgb(100,115,120)] text-lg leading-relaxed mb-8 max-w-xl">
-              Aesthetic Dermatology &amp; Advanced Injectables by Dr Ahmed Galal — combining medical
-              expertise with artistic vision to enhance natural beauty while maintaining facial harmony.
+              {t('hero_subtitle')}
             </p>
             <div className="flex flex-wrap gap-4">
               <a
                 href="#contact"
                 className="bg-[#2d5a4e] text-white font-semibold px-7 py-3.5 rounded-lg hover:bg-[#234840] transition-colors duration-200 shadow-md"
               >
-                Schedule Consultation
+                {t('hero_cta1')}
               </a>
               <a
                 href="#services"
                 className="border border-[#2d5a4e] text-[#2d5a4e] font-semibold px-7 py-3.5 rounded-lg hover:bg-[#2d5a4e] hover:text-white transition-colors duration-200"
               >
-                Our Services
+                {t('hero_cta2')}
               </a>
             </div>
 
