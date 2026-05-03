@@ -89,7 +89,7 @@ export default function Header() {
 
         {/* Logo — always LTR */}
         <a href="#" className="flex items-center gap-2 flex-shrink-0" dir="ltr">
-          <img src={`${import.meta.env.BASE_URL}images/team/doctor.jpeg`} alt="Dr. Ahmed Galal" style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover' }} />
+          <img src={`${import.meta.env.BASE_URL}images/team/doctor.jpeg`} alt="Dr. Ahmed Galal" style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover', objectPosition: 'center 10%' }} />
           <span className="font-bold text-[#2d5a4e] text-lg tracking-tight">Dr. Ahmed Galal</span>
         </a>
 
