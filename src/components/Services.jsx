@@ -15,7 +15,7 @@ const servicesMeta = [
     details: ['Profhilo & Juvederm Volite','Vitamin & antioxidant cocktails','Deep skin hydration','Pore minimising & glow boost','Face, neck, hands & décolletage'] },
   { img: `${BASE}images/services/skin2.jpg`,     emoji: '🔬', titleKey: 'svc5_title', descKey: 'svc5_desc',
     details: ['Laser resurfacing & pigmentation','Chemical peels (superficial to deep)','Microneedling with PRP','Acne & post-acne scar revision','Personalised medical skincare plan'] },
-  { img: `${BASE}images/services/hair.jpg`,      emoji: '💆', titleKey: 'svc6_title', descKey: 'svc6_desc',
+  { img: `${BASE}images/services/hair.png`,      emoji: '💆', titleKey: 'svc6_title', descKey: 'svc6_desc',
     details: ['PRP (Platelet-Rich Plasma) therapy','Scalp mesotherapy','Hair loss diagnosis & blood tests','Topical & oral treatment plans','Maintenance & follow-up sessions'] },
 ]
 
