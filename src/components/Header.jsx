@@ -72,6 +72,7 @@ export default function Header() {
     { label: t('nav_about'),    href: '#about' },
     { label: t('nav_services'), href: '#services' },
     { label: t('nav_gallery'),  href: '#gallery' },
+    { label: t('faq_title'),    href: '#faq' },
     { label: t('nav_contact'),  href: '#contact' },
   ]
 

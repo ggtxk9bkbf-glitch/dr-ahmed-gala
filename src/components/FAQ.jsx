@@ -63,7 +63,7 @@ export default function FAQ() {
   }, [])
 
   return (
-    <section className="bg-[#f9f7f4] py-20 lg:py-28">
+    <section id="faq" className="bg-[#f9f7f4] py-20 lg:py-28">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div ref={sectionRef} style={{ opacity: 0 }} className="text-center mb-14">
